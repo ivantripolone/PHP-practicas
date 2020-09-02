@@ -1,0 +1,261 @@
+/*Fuentes*/
+@font-face{
+    font-family: "fajala";
+    src: url(../fonts/fuente.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, helvetica, Arial;
+    text-decoration: none;
+    
+}
+.clearfix{
+    clear: both;
+    float:none;
+}
+body{
+    background: url(../images/cubes.png) #f4f4f4;
+}
+
+/*Cabecera jamves1973@g*/
+
+#cabecera{
+    width: 85%;
+    height: auto;
+    background: transparent;
+    margin: 0px auto;    
+}
+/*Logotipo*/
+#logo{
+    float: left;
+    width: 540px;
+    height: 100px;
+    
+}
+
+#logo a{
+    font-family: "fajala", helvetica;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #2979CD;
+    text-shadow: 0px 0px 0px black, 1px 1px 0px black, 2px 2px 0px black;
+    transition: all 500ms;
+    line-height: 90px;
+    margin-left: 10px;
+    
+}
+
+#logo a:hover{
+    cursor: pointer;
+    text-shadow: 0px 0px 0px black, -1px -1px 0px black, -2px -2px 0px black;
+}
+
+/*Menu*/
+#menu{
+    width: 100%;
+    height: 45px;
+    clear: both;
+    background: linear-gradient(to bottom,#f9f9f9 0px,#e9e9e9 100%);
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px #ccc;
+    overflow: hidden;
+}
+
+#menu ul{
+    list-style: none;
+}
+
+#menu ul li{
+    float: left;
+    line-height: 44px;
+    border-right: 1px solid #d6d6d6;
+}
+
+#menu ul li:hover{
+    background: linear-gradient(to bottom,#f2f2f2 0px,#dad9d4 100%);
+}
+
+#menu ul li a{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    color: #838282;
+}
+
+/*Contenido*/
+
+#contenedor{
+    width: 85%;
+    height: auto;
+    margin: 0px auto; 
+    margin-top: 30px;
+    margin-bottom:30px; 
+}
+
+/*Barra Lateral*/
+
+#sidebar{
+    float: right;
+    width: 25%;
+    height:auto;
+}
+
+/*Principal*/
+
+#principal{
+    float: left;
+    width: 65%;
+    min-height: 515px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    overflow: hidden;
+    margin-left: 20px;
+    padding: 25px;
+}
+
+#principal h1{
+    font-size: 32px;
+    margin: 15px;
+    font-family: "fajala";
+    color: #444;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px #ccc;
+}
+#principal a{
+    color: #333;
+}
+#principal h2{
+    font-size: 20px;
+    margin-top: 25px;
+    font-family: "fajala";
+    color: #2979CD;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #ccc;
+}
+#principal p{
+   
+   margin-top: 8px; 
+}
+#ver-todas a{
+    display: block;
+    border-radius: 3px;
+    color: #ffffff;
+    background: #2979CD;
+    padding: 25px;
+    width: 160px;
+    margin: 0px auto;
+    margin-top: 55px;
+    box-shadow: 1px 3px 4px #bbb;
+  
+}
+
+#sidebar{
+    float: right;
+    width: 27%;
+    min-height: 900px;
+}
+.alerta{
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    background: green;
+    box-shadow: 0px 1px 3px #ccc;
+    
+}
+
+.alerta-error{
+    background: red;
+}
+
+.bloque{
+    display: block;
+    width: 80%;
+    margin: 0px auto;
+    margin-bottom: 35px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0px 0px 1px #bbb, 0px 3px 7px #bbb, 0px 0px 2px #fff inset,0px -2px 2px #ccc inset ;
+    border-radius: 3px;
+}
+.bloque h3{
+    margin-bottom: 15px;
+    color: #2979CD;
+    
+}
+Label,
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    
+    display:block;
+    width:95%;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+input[type="submit"],
+input[type="button"],
+.boton
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    border-radius: 3px;
+    color: #ffffff;
+    background: #2979CD;
+    padding: 7px;
+    margin: 0px auto;   
+    box-shadow: 1px 3px 4px #bbb;
+    border: 2px solid mediumblue;
+}
+.boton{
+    text-align: center;
+    width: 130px;
+    margin: 5px auto;    
+}
+
+.boton-naranja{
+    background: orange;
+    border: 2px solid coral;
+}
+.boton-verde{
+    
+    background: #69ca69;
+    border: 2px solid green;
+}
+.boton-violeta{
+    background: violet;
+    border: 2px solid blueviolet;
+    
+}
+
+/*PIE DE PAGINA*/
+
+#pie{
+    clear: both;
+    width: 85%;
+    margin: 0px auto;
+    background: linear-gradient(to bottom,#f9f9f9 0px,#e9e9e9 100%);
+    border: 1px solid #c9c9c9;
+    border-bottom: none;
+    border-radius: 8px 8px 0px 0px;
+    color:  #666;
+    height: auto;
+    padding:  15px;
+    text-align: center;
+}
+
+
