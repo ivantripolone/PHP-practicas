@@ -1,4 +1,4 @@
-<?php
+º<?php
 
 //Iniciar sesion y conectar a la bd.
 require_once './includes/conexion.php';

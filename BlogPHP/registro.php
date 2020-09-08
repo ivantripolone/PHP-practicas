@@ -54,8 +54,8 @@ if(isset($_POST)) {
         $sql= "INSERT INTO usuarios VALUES(null, '$nombre', '$apellidos', '$email', '$pass_segura', CURDATE())";
         
         //insertar datos del usuario en la tabla de usuarios en la base de datos.
-        $guardar= mysqli_query($db, $sql);
-        if($guardar){
+        $crear= mysqli_query($db, $sql);
+        if($crear){
             $_SESSION['completo']= "el usuario se ha registrado con exito";
         } else {
             $_SESSION['errores']['general']= "Fallo al guardar usuario";

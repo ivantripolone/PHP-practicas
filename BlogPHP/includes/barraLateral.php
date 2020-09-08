@@ -8,12 +8,12 @@
         <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido'];?></h3>
         <!--Botones-->
         <a href="perfil.php" class="boton boton-verde">Mi Perfil</a>
-        <a href="crearE.php" class="boton boton-naranja">Crear Entrada</a>
-        <a href="crearC.php" class="boton boton-violeta">Crear Categorias</a>
+        <a href="crearEntrada.php" class="boton boton-naranja">Crear Entrada</a>
+        <a href="crearCategoria.php" class="boton boton-violeta">Crear Categorias</a>
         <a href="cerrarSesion.php" class="boton">Cerrar Sesion</a>
     </div>
     <?php endif;?>
-    
+    <?php if(!isset($_SESSION['usuario'])): ?>
     <div id="login" class="bloque">
         
         <h3>Identificate</h3>
@@ -73,6 +73,6 @@
         
         </form>
     </div>
-    
+    <?php endif;?>
     <?php borrarErrores();?>
 </aside>

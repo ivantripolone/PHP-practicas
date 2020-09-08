@@ -5,29 +5,20 @@
 <!--Cuerpo -->
 <div id="principal">
     <h1>Ultimas entradas</h1>
-
-    <a href=""> <article class="entrada">
-            <h2>Titulo de la entrada</h2>
-            <p> Este esquema se ha utilizado para mutiplexar llamadas en el sistema telefónico durante muchos años,
-                pero ahora se prefiere más la multiplexión en el tiempo. Sin embargo, FDM se sigue utilizando en las
-                redes telefónicas, así 
-            </p>
-        </article></a>
-    <a href=""> <article class="entrada">
-            <h2>Titulo de la entrada</h2>
-            <p> Este esquema se ha utilizado para mutiplexar llamadas en el sistema telefónico durante muchos años,
-                pero ahora se prefiere más la multiplexión en el tiempo. Sin embargo, FDM se sigue utilizando en las
-                redes telefónicas, así 
-            </p>
-        </article></a>
-    <a href=""> <article class="entrada">
-            <h2>Titulo de la entrada</h2>
-            <p> Este esquema se ha utilizado para mutiplexar llamadas en el sistema telefónico durante muchos años,
-                pero ahora se prefiere más la multiplexión en el tiempo. Sin embargo, FDM se sigue utilizando en las
-                redes telefónicas, así 
-            </p>
-        </article></a>
+    <?php 
+        $entradas= conseguirEntradas($db);
+        while ($entrada= mysqli_fetch_assoc($entradas)):
+    ?>
+    <a href="entrada.php?id=<?=$entrada['id']?>"> 
+        <article class="entrada">
+            <h2><?=$entrada['titulo']?> </h2>
+            <span class="info"><?=$entrada['categoria'] .' | '. $entrada['fecha']?> </span>
+            <p> <?= substr($entrada['descripcion'], 1, 200).'...'?> </p>
+            
+        </article>
+    </a>
     
+    <?php endwhile;?>
     <div id="ver-todas">
         <a href="">Ver todas las entradas</a>
     </div>
