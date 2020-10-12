@@ -72,7 +72,8 @@
             <input type="submit" name="submit" value="Registrarse" />
         
         </form>
+        <?php borrarErrores();?>
     </div>
     <?php endif;?>
-    <?php borrarErrores();?>
+    
 </aside>

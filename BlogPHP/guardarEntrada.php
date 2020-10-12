@@ -1,33 +1,34 @@
 <?php
 
-if(isset($_POST)){
-   // session_start();
+if (isset($_POST)) {
+    // session_start();
     require_once './includes/conexion.php';
-    $titulo= isset($_POST['titulo'])? mysqli_real_escape_string($db,$_POST['titulo']):false ;
-    $descripcion= isset($_POST['descripcion'])? mysqli_real_escape_string($db,$_POST['descripcion']):false ;
-    $categoria= isset($_POST['categoria'])? (int)$_POST['categoria']:false ;
-    $usuarioID= $_SESSION['usuario']['id'];
+    $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($db, $_POST['titulo']) : false;
+    $descripcion = isset($_POST['descripcion']) ? mysqli_real_escape_string($db, $_POST['descripcion']) : false;
+    $categoria = isset($_POST['categoria']) ? (int) $_POST['categoria'] : false;
+    $usuarioID = $_SESSION['usuario']['id'];
     //array de errores
-    $errores= array();
+    $errores = array();
     //validar los datos antes de guardarlos en db
     //validando nombre
-    
-    if(empty($titulo)){
-        $errores['titulo']= 'el titulo no es valido';
-    } 
-    if(empty($descripcion) ){
-        $errores['descripcion']= 'la descripcion no es valido';
+
+    if (empty($titulo)) {
+        $errores['titulo'] = 'el titulo no es valido';
     }
-    if(empty($categoria) && !is_numeric($categoria) ){
-        $errores['descripcion']= 'la descripcion no es valido';
+    if (empty($descripcion)) {
+        $errores['descripcion'] = 'la descripcion no es valido';
     }
-    
-    if(count($errores) == 0){
-        $sql= "INSERT INTO entrada VALUES (NULL,'$categoria','$usuarioID','$titulo','$descripcion', CURDATE());";
-        $crear= mysqli_query($db, $sql);
+    if (empty($categoria) && !is_numeric($categoria)) {
+        $errores['descripcion'] = 'la descripcion no es valido';
+    }
+
+    if (count($errores) == 0) {
+        $sql = "INSERT INTO entrada VALUES (NULL,'$categoria','$usuarioID','$titulo','$descripcion', CURDATE());";
+        $crear = mysqli_query($db, $sql);
+        header('Location: index.php');
     } else {
-        $_SESSION['erroresEntrada']= $errores;
+
+        $_SESSION['erroresEntrada'] = $errores;
+        header('Location: crearEntrada.php');
     }
-    
 }
-header('Location: index.php');

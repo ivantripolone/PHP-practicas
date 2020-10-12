@@ -23,15 +23,15 @@
                     <li>
                         <a href="index.php">Inicio</a>
                     </li>
-                    <?php 
-                        $categorias= conseguirCategoria($db);
-                        while($categoria= mysqli_fetch_assoc($categorias)):
-                    ?>
-                    <li>
-                        <a href="categoria.php?id=<?=$categoria['id']?>"><?= $categoria['nombre']?></a>
-                    </li>
+                    <?php
+                    $categorias = conseguirCategoria($db);
+                    while ($categoria = mysqli_fetch_assoc($categorias)):
+                        ?>
+                        <li>
+                            <a href="categoria.php?id=<?= $categoria['id'] ?>&nombre=<?= $categoria['nombre'] ?>"><?= $categoria['nombre'] ?></a>
+                        </li>
                     <?php endwhile; ?>
-                    
+
                     <li>
                         <a href="index.php">Sobre mi</a>
                     </li>

@@ -1,4 +1,4 @@
-<?php require_once './includes/redireccion.php';?>
+<?php require_once './includes/redireccion.php'; ?>
 <?php require_once './includes/Cabecera.php'; ?>
 <?php require_once './includes/barraLateral.php'; ?>
 
