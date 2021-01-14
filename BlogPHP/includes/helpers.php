@@ -42,7 +42,7 @@ function conseguirCategoria($db) {
 }
 
 function conseguirEntradas($db, $limit = 4, $idC = 'c.id', $idE = 'e.id') {
-    $sql = "SELECT e.id ,e.fecha,e.categoria_id,e.titulo,e.descripcion, c.nombre AS categoria FROM entrada e,categorias c WHERE e.id = $idE AND e.categoria_id = $idC AND e.categoria_id = c.id ORDER BY e.fecha DESC LIMIT $limit;";
+    $sql = "SELECT e.usuario_id, e.id ,e.fecha,e.categoria_id,e.titulo,e.descripcion, c.nombre AS categoria FROM entrada e,categorias c WHERE e.id = $idE AND e.categoria_id = $idC AND e.categoria_id = c.id ORDER BY e.fecha DESC LIMIT $limit;";
     $entradas = mysqli_query($db, $sql);
     $result = 0;
     if ($entradas && mysqli_num_rows($entradas)) {
