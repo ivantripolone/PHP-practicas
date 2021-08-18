@@ -17,12 +17,30 @@
                 <div class="clearfix"></div>
             </header>
 
-            <!-- Menu-->
+            <!--Menu -->
             <nav id="menu">
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="">categorias</a></li>
-                </ul>
+                    <li>
+                        <a href="<?=url_base?>">Inicio</a>
+                    </li>
+                    <?php
+                    require_once 'models/Category.php';
+                    $categorias= new Category();
+                    $categorias = $categorias->getAll();
+                    while ($categoria = mysqli_fetch_assoc($categorias)):
+                        ?>
+                        <li>
+                            <a href=""><?= $categoria['name'] ?></a>
+                        </li>
+                    <?php endwhile; ?>
+
+                    <li>
+                        <a href="index.php">Sobre mi</a>
+                    </li>
+                    <li>
+                        <a href="index.php">Contacto</a>
+                    </li>
+                </ul> 
             </nav>
 
             <div id="content">

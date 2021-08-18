@@ -1,7 +1,12 @@
+/*Crea la base de datos de la tienda*/
 CREATE DATABASE Tienda_php;
+/*usa la base de datos de la tienda*/
 USE Tienda_php;
 
+/*crea la tabla usuarios*/
 CREATE TABLE usuarios(
+    --se establece un id unico como clave primaria autoincremental
+    --se establece que el email debe ser unico
     usuario_id    int(255) auto_increment not null,
     nombres       varchar(100) not null,  
     apellidos     varchar(255) not null,
@@ -12,8 +17,10 @@ CREATE TABLE usuarios(
     CONSTRAINT uq_email UNIQUE(email)
 )ENGINE=innodb;
 
+--se inserta usuario admin
 INSERT INTO usuarios VALUES(NULL, 'Admin', 'Admin','admin@admin.com','admin','admin');
 
+--se crea la tabla categorias
 CREATE TABLE categorias(
     categoria_id    int(255) auto_increment not null,
     nombre       varchar(100) not null,
@@ -26,6 +33,7 @@ INSERT INTO categorias VALUES(NULL,'Musculosa');
 INSERT INTO categorias VALUES(NULL,'Deportiva');
 INSERT INTO categorias VALUES(NULL,'Elegante');
 
+--se crea la tabla productos
 CREATE TABLE productos(
     producto_id    int(255) auto_increment not null,
     categoria_id   int(255) not null,
@@ -40,6 +48,7 @@ CREATE TABLE productos(
     REFERENCES categorias(categoria_id)
 )ENGINE=innodb;
 
+--se crea la tabla direcciones
 CREATE TABLE direcciones(
     direccion_id    int(255) auto_increment not null,
     usuario_id      int(255) not null,
@@ -57,7 +66,7 @@ CREATE TABLE direcciones(
     REFERENCES usuarios(usuario_id)
 )ENGINE=innodb;
 
-
+--se crea la tabla pedidos
 CREATE TABLE pedidos(
     pedido_id      int(255) auto_increment not null,
     usuario_id     int(255) not null,
@@ -72,6 +81,7 @@ CREATE TABLE pedidos(
     REFERENCES direcciones(direccion_id)
 )ENGINE=innodb;
 
+--se crea la tabla productos pedidos
 CREATE TABLE productos_pedidos(
     id            int(255) auto_increment not null,
     pedido_id     int(255) not null,

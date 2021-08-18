@@ -1,6 +1,6 @@
 <?php
 
-class Usuario {
+class User {
 
     private $id;
     private $nombre;
@@ -32,7 +32,7 @@ class Usuario {
     }
 
     function getPassword() {
-        return $this->password;
+        return password_hash($this->db->real_escape_string($this->password),PASSWORD_BCRYPT,['cost'=>4]);
     }
 
     function getRol() {
@@ -64,7 +64,7 @@ class Usuario {
     }
 
     function setPassword($password) {
-        $this->password = password_hash($this->db->real_escape_string($password),PASSWORD_BCRYPT,['cost'=>4]);
+        $this->password = $password;
     }
 
     function setRol($rol) {
@@ -84,6 +84,28 @@ class Usuario {
         } else {
             return false;
         }
+    }
+    
+    function login(){
+        $email= $this->email;
+        $password= $this->password;
+        $result=false;
+        //comprobar si existe el usuario en la base de datos
+        $sql="SELECT * FROM usuarios WHERE email = '$email'";
+        $login = $this->db->query($sql);
+        //si existe el usuario y el resultado de la busqueda es 1 la condicion sera verdadera
+        if($login && $login->num_rows==1){
+            //combierto al usuario de la base de datos en un objeto
+            $usuario= $login->fetch_object();
+            //verificar contraseña
+            $verify= password_verify($password, $usuario->password);
+        
+            if($verify){
+                $result=$usuario;
+            }
+        }
+        return $result;
+        
     }
 
 }
